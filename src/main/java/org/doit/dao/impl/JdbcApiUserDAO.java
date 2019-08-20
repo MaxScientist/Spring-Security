@@ -52,6 +52,7 @@ public class JdbcApiUserDAO implements UserDAO {
                 user.setName(rs.getString(1));
                 user.setSurname(rs.getString(2));
                 user.setEmail(rs.getString(3));
+                user.setPassword(rs.getString(4));
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -72,6 +73,7 @@ public class JdbcApiUserDAO implements UserDAO {
                 user.setName(rs.getString(1));
                 user.setSurname(rs.getString(2));
                 user.setEmail(rs.getString(3));
+                user.setPassword(rs.getString(4));
                 return user;
             }
         } catch (SQLException ignored) {
@@ -81,10 +83,11 @@ public class JdbcApiUserDAO implements UserDAO {
 
     public void add(User user) {
         try {
-            PreparedStatement ps = conn.prepareStatement("insert into users values(?, ?, ?)");
+            PreparedStatement ps = conn.prepareStatement("insert into users values(?,?, ?, ?)");
             ps.setString(1, user.getName());
             ps.setString(2, user.getSurname());
             ps.setString(3, user.getEmail());
+            ps.setString(4,user.getPassword());
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();

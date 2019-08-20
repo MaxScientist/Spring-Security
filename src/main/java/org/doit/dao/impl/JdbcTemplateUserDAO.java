@@ -38,8 +38,8 @@ public class JdbcTemplateUserDAO implements UserDAO {
     @Override
     public void add(User user) {
         jdbcTemplate.update(
-                "insert into users values(?, ?, ?)",
-                user.getName(), user.getSurname(), user.getEmail()
+                "insert into users values(?, ?, ?, ?)",
+                user.getName(), user.getSurname(), user.getEmail(),user.getPassword()
         );
     }
 }

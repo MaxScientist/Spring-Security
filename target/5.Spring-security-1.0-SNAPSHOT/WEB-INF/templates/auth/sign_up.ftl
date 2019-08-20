@@ -16,7 +16,7 @@
             <@sf.input path="name"/>
             <@sf.errors path="name"/>
         </div>
-        <div >
+        <div>
             <@sf.label path="surname">Surname</@sf.label>
             <@sf.input path="surname"/>
             <@sf.errors path="surname"/>
