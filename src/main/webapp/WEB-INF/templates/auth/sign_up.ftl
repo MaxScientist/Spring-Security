@@ -7,10 +7,20 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<#assign sf=JspTaglibs["http://www.springframework.org/tags/form"]>
 
+
+<script>
+    submitForms=function () {
+        document.getElementById("form1").submit();
+        document.getElementById("form2").submit();
+
+    }
+</script>
+<#assign sf=JspTaglibs["http://www.springframework.org/tags/form"]>
 <#macro content>
-    <@sf.form action="/sign_up" class="text-center border border-light p-5" method="post" modelAttribute="user">
+
+    <@sf.form action="/sign_up" class="text-center border border-light p-5" method="post" modelAttribute="user" id="form1">
+
         <div class="form-row mb-4">
             <@sf.label path="name">Name</@sf.label>
             <@sf.input path="name"/>
@@ -31,8 +41,12 @@
             <@sf.input path="password" type="password"/>
             <@sf.errors path="password"/>
         </div>
+
         <input type="submit" class="btn btn-info my-4 btn-block" name="Authorize">
+
     </@sf.form>
+
+
 </#macro>
 </body>
     </html>

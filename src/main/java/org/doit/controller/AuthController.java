@@ -27,7 +27,8 @@ public class AuthController {
     }
 
     @PostMapping("/sign_up")
-    public String signUp(@ModelAttribute @Valid User user, BindingResult result) {
+    public String signUp(@ModelAttribute@Valid User user, BindingResult result) {
+
         userValidator.validate(user, result);
         if (result.hasErrors()) {
             return "/auth/sign_up";
