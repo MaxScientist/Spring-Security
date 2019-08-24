@@ -30,5 +30,6 @@ public class User {
     @Size(min = 7, message = "Minimum 7 symbols")
     private String password;
 
-
+    @Embedded
+    private Address address;
 }
