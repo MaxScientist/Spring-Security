@@ -27,7 +27,7 @@
 <#--            <@sf.errors path="street"/>-->
 <#--        </div>-->
 <#--    </@sf.form>-->
-    <@sf.form action="/sign_up" class="text-center border border-light p-5" method="post" modelAttribute="user" id="form1">
+    <@sf.form action="/sign_up" class="text-center border border-light p-5" modelAttribute="user" method="post">
 
         <div class="form-row mb-4">
             <@sf.label path="name">Name</@sf.label>
@@ -49,15 +49,16 @@
             <@sf.input path="password" type="password"/>
             <@sf.errors path="password"/>
         </div>
-        <div class="form-row mb-4">
-            <@sf.label path="address.city">City</@sf.label>
-            <@sf.input path="address.city" type="text"/>
-            <@sf.errors path="address.city"/>
-        </div><div class="form-row mb-4">
-            <@sf.label path="address.street">Street</@sf.label>
-            <@sf.input path="address.street" type="text"/>
-            <@sf.errors path="address.street"/>
-        </div>
+
+<#--        <div class="form-row mb-4">-->
+<#--            <@sf.label path="address.city">City</@sf.label>-->
+<#--            <@sf.input path="address.city"/>-->
+<#--            <@sf.errors path="address.city"/>-->
+<#--        </div><div class="form-row mb-4">-->
+<#--            <@sf.label path="address.street">Street</@sf.label>-->
+<#--            <@sf.input path="address.street"/>-->
+<#--            <@sf.errors path="address.street"/>-->
+<#--        </div>-->
 
         <input type="submit" class="btn btn-info my-4 btn-block" name="Authorize">
 

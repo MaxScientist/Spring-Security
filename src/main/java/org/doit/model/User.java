@@ -7,6 +7,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -29,7 +31,10 @@ public class User {
 
     @Size(min = 7, message = "Minimum 7 symbols")
     private String password;
-
-    @Embedded
+//    @Embedded
     private Address address;
+
+    @ElementCollection
+    @Embedded
+    private Set<Address> listOfAddresses = new HashSet<Address>();
 }

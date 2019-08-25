@@ -24,20 +24,28 @@ import org.springframework.test.context.web.WebAppConfiguration;
 public class RepoTest {
 
     @Autowired
-    private UserService repository;
+    private UserRepository repository;
 
     @Test
     public void testForRepo(){
         Address address = new Address();
-        address.setCity("oekkgep");
-        address.setStreet("ekgopke");
+        address.setCity("oekkewtfwgep");
+        address.setStreet("ekwefwrgopke");
+
+        Address address1 = new Address();
+        address1.setCity("oekkegvwefwfwgep");
+        address1.setStreet("ekw2eweffwgopke");
+
         User user = new User();
-        user.setId(20L);
-        user.setName("ogerpo");
-        user.setSurname("egjepgje");
-        user.setEmail("10xb-kf-2@gm.com");
-        user.setPassword("rogpejgpo");
+        user.setId(25L);
+        user.setName("ogwrpo");
+        user.setSurname("egwfeejepgje");
+        user.setEmail("rwweefkf-2@g3m.com");
+        user.setPassword("rogwefpejgpo");
+user.getListOfAddresses().add(address);
+user.getListOfAddresses().add(address1);
+
 //        user.setAddress(address);
-        repository.add(user,address);
+        repository.save(user);
     }
 }
