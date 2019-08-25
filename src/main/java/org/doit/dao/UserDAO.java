@@ -1,5 +1,6 @@
 package org.doit.dao;
 
+import org.doit.model.Address;
 import org.doit.model.User;
 
 import java.util.List;
@@ -9,5 +10,5 @@ public interface UserDAO {
 
     User getOne(String email);
 
-    void add(User user);
+    void add(User user, Address address);
 }

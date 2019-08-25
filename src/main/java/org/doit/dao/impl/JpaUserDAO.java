@@ -1,6 +1,7 @@
 package org.doit.dao.impl;
 
 import org.doit.dao.UserDAO;
+import org.doit.model.Address;
 import org.doit.model.User;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,7 +37,8 @@ public class JpaUserDAO implements UserDAO {
 
     @Override
     @Transactional
-    public void add(User user) {
+    public void add(User user, Address address) {
+        user.setAddress(address);
         entityManager.persist(user);
     }
 }

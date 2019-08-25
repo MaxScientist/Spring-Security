@@ -7,9 +7,26 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
+<script>
+    submitForms = function(){
+        document.getElementById("form1").submit();
+        document.getElementById("form2").submit();
+    }
+</script>
+
 <#assign sf=JspTaglibs["http://www.springframework.org/tags/form"]>
 <#macro content>
-
+<#--    <@sf.form action="/sign_up" method="post" modelAttribute="address" id="form2">-->
+<#--            <div class="form-row mb-4">-->
+<#--            <@sf.label path="city">City</@sf.label>-->
+<#--            <@sf.input path="city" type="text"/>-->
+<#--            <@sf.errors path="city"/>-->
+<#--        </div><div class="form-row mb-4">-->
+<#--            <@sf.label path="street">Street</@sf.label>-->
+<#--            <@sf.input path="street" type="text"/>-->
+<#--            <@sf.errors path="street"/>-->
+<#--        </div>-->
+<#--    </@sf.form>-->
     <@sf.form action="/sign_up" class="text-center border border-light p-5" method="post" modelAttribute="user" id="form1">
 
         <div class="form-row mb-4">
@@ -31,6 +48,15 @@
             <@sf.label path="password">Password</@sf.label>
             <@sf.input path="password" type="password"/>
             <@sf.errors path="password"/>
+        </div>
+        <div class="form-row mb-4">
+            <@sf.label path="address.city">City</@sf.label>
+            <@sf.input path="address.city" type="text"/>
+            <@sf.errors path="address.city"/>
+        </div><div class="form-row mb-4">
+            <@sf.label path="address.street">Street</@sf.label>
+            <@sf.input path="address.street" type="text"/>
+            <@sf.errors path="address.street"/>
         </div>
 
         <input type="submit" class="btn btn-info my-4 btn-block" name="Authorize">

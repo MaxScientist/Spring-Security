@@ -1,5 +1,6 @@
 package org.doit.service;
 
+import org.doit.model.Address;
 import org.doit.model.User;
 import org.doit.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void add(User user) {
+    public void add(User user, Address address) {
+        user.setAddress(address);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
