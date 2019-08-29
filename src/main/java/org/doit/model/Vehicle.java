@@ -12,8 +12,11 @@ import java.beans.ConstructorProperties;
 @Entity
 public class Vehicle {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private int vehicleId;
 
     private String vehicleName;
+
+    @ManyToOne
+    private User user;
 }

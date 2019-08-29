@@ -18,7 +18,7 @@ import java.util.Set;
 @Data
 @Entity
 @NoArgsConstructor
-@Table(name = "users")
+@Table(name = "USERS")
 public class User {
 
     @Id
@@ -37,8 +37,23 @@ public class User {
     @Size(min = 7, message = "Minimum 7 symbols")
     private String password;
 
-    @OneToOne
-    private Vehicle vehicle;
+
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "VEHICLE_USER",
+    joinColumns = @JoinColumn(name = "USER_ID"),
+    inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
+    private Collection<Vehicle> vehicles = new ArrayList<>();
+//
+//    @OneToMany
+//    @JoinTable(
+//    joinColumns = {@JoinColumn(name="USERS_ID")},
+//    inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
+
+//    @JoinTable(name = "USER_VEHICLE",
+//            joinColumns = @JoinColumn(name = "USER_ID"),
+//            inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
+//    private Collection<Vehicle> vehicle = new ArrayList<Vehicle>();
     //Embedding the class into entity table
     //Collection Mapping and adding key, and fetching field
     //Fetching - is proxy object, which allows us getting neither

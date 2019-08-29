@@ -1,6 +1,6 @@
 package org.doit.service;
 
-import org.doit.model.Address;
+//import org.doit.model.Address;
 import org.doit.model.User;
 
 import java.util.List;

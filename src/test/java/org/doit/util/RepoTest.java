@@ -7,8 +7,12 @@ import org.doit.config.WebConfig;
 import org.doit.dao.impl.HibernateUserDAO;
 import org.doit.model.Address;
 import org.doit.model.User;
+import org.doit.model.Vehicle;
 import org.doit.repository.UserRepository;
+import org.doit.repository.VehicleRepository;
 import org.doit.service.UserService;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,26 +31,60 @@ public class RepoTest {
     @Autowired
     private UserRepository repository;
 
+    @Autowired
+    private VehicleRepository vehicleRepository;
+
+//
+//    @Autowired
+//    private SessionFactory factory;
+
     @Test
     public void testForRepo(){
-        Address address = new Address();
-        address.setCity("4owtfwgep");
-        address.setStreet("e2kwefw9rgopke");
-
-        Address address1 = new Address();
-        address1.setCity("o212fwfwgep");
-        address1.setStreet("124eweffwgopke");
-
+//
+//
         User user = new User();
-        user.setId(29L);
-        user.setName("2opo");
-        user.setSurname("ege1");
-        user.setEmail("FJlk@g3m.com");
-        user.setPassword("ropejgpo");
-user.getListOfAddresses().add(address);
-user.getListOfAddresses().add(address1);
 
-//        user.setAddress(address);
+        user.setName("AAAAA");
+        user.setSurname("BBBB");
+        user.setEmail("1Esd521.com");
+        user.setPassword("ropejgpo");
+
+        Vehicle vehicle = new Vehicle();
+        vehicle.setVehicleName("Volva");
+
+        Vehicle vehicle1 = new Vehicle();
+        vehicle1.setVehicleName("Nissan");
+//
+        user.getVehicles().add(vehicle);
+        user.getVehicles().add(vehicle1);
+        vehicle.setUser(user);
+        vehicle1.setUser(user);
+//        user.setVehicle(vehicle);
+//user.getListOfAddresses().add(address);
+//user.getListOfAddresses().add(address1);
         repository.save(user);
+        vehicleRepository.save(vehicle);
+        vehicleRepository.save(vehicle1);
+
+
+//        Session session = factory.openSession();
+//        session.save(user);
+//        session.save(vehicle);
+//        session.save(vehicle1);
+//
+//        session.beginTransaction();
+
+//          session.getTransaction().commit();
+//        session.close();
+//        repository.deleteAll();
+
+
+
+//        session.getTransaction().commit(); /// don't use this option, 'cause The programm will throw exception
+//        session.getTransaction().commit();
+//session.close();
+//        user.setAddress(address);
+//        repository.save(vehicle);
+//        repository.save(user);
     }
 }
