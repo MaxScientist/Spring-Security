@@ -37,8 +37,9 @@ public class JpaUserDAO implements UserDAO {
 
     @Override
     @Transactional
-    public void add(User user, Address address) {
-        user.setAddress(address);
+    public void add(User user) {           //<--- adding Address for setting user
+        //
+        //        user.setAddress(address);
         entityManager.persist(user);
     }
 }

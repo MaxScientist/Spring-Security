@@ -1,6 +1,6 @@
 package org.doit.controller;
 
-import org.doit.model.Address;
+//import org.doit.model.Address;
 import org.doit.model.User;
 import org.doit.service.UserService;
 import org.doit.util.UserValidator;
@@ -24,19 +24,19 @@ public class AuthController {
     @GetMapping("/sign_up")
     public String getSignUp(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("address",new Address());
+//        model.addAttribute("address",new Address());
         return "/auth/sign_up";
     }
 
     @PostMapping("/sign_up")
-    public String signUp(@ModelAttribute@Valid User user, BindingResult result,@ModelAttribute Address address) {
+    public String signUp(@ModelAttribute@Valid User user, BindingResult result) {
 
         userValidator.validate(user, result);
         if (result.hasErrors()) {
             return "/auth/sign_up";
         }
 
-        userService.add(user,address);
+        userService.add(user);
         return "redirect:/users";
     }
 

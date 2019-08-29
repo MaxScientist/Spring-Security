@@ -32,8 +32,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void add(User user, Address address) {
-        user.setAddress(address);
+    public void add(User user) {           //<--setting address
+//        user.setAddress(address);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }

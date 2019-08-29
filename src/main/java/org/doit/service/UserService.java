@@ -10,5 +10,5 @@ public interface UserService {
 
     User getOne(String email);
 
-    void add(User user, Address address);
+    void add(User user);        //Setting address, To work with address you need to add address
 }

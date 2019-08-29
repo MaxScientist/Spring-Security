@@ -4,6 +4,7 @@ import org.doit.config.CoreConfig;
 import org.doit.config.PersistenceConfig;
 import org.doit.config.SecurityConfig;
 import org.doit.config.WebConfig;
+import org.doit.dao.impl.HibernateUserDAO;
 import org.doit.model.Address;
 import org.doit.model.User;
 import org.doit.repository.UserRepository;
@@ -29,19 +30,19 @@ public class RepoTest {
     @Test
     public void testForRepo(){
         Address address = new Address();
-        address.setCity("oekkewtfwgep");
-        address.setStreet("ekwefwrgopke");
+        address.setCity("4owtfwgep");
+        address.setStreet("e2kwefw9rgopke");
 
         Address address1 = new Address();
-        address1.setCity("oekkegvwefwfwgep");
-        address1.setStreet("ekw2eweffwgopke");
+        address1.setCity("o212fwfwgep");
+        address1.setStreet("124eweffwgopke");
 
         User user = new User();
-        user.setId(25L);
-        user.setName("ogwrpo");
-        user.setSurname("egwfeejepgje");
-        user.setEmail("rwweefkf-2@g3m.com");
-        user.setPassword("rogwefpejgpo");
+        user.setId(29L);
+        user.setName("2opo");
+        user.setSurname("ege1");
+        user.setEmail("FJlk@g3m.com");
+        user.setPassword("ropejgpo");
 user.getListOfAddresses().add(address);
 user.getListOfAddresses().add(address1);
 

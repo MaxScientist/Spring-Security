@@ -10,5 +10,5 @@ public interface UserDAO {
 
     User getOne(String email);
 
-    void add(User user, Address address);
+    void add(User user);
 }

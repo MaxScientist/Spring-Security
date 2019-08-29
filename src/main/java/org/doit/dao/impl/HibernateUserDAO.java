@@ -35,9 +35,12 @@ public class HibernateUserDAO implements UserDAO {
     }
 
     @Override
-    public void add(User user, Address address)
+    public void add(User user)
     {
-        user.setAddress(address);
+        //^
+        //|
+        //address
+//        user.setAddress(address);
         currentSession().save(user);
     }
 }
