@@ -27,7 +27,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 })
 @WebAppConfiguration
 public class RepoTest {
-
+////
     @Autowired
     private UserRepository repository;
 
@@ -46,27 +46,35 @@ public class RepoTest {
 
         user.setName("AAAAA");
         user.setSurname("BBBB");
-        user.setEmail("1Esd521.com");
+        user.setEmail("zf2gdfo1.com");
         user.setPassword("ropejgpo");
 
         Vehicle vehicle = new Vehicle();
-        vehicle.setVehicleName("Volva");
+        vehicle.setVehicleName("Skoda");
 
         Vehicle vehicle1 = new Vehicle();
-        vehicle1.setVehicleName("Nissan");
+        vehicle1.setVehicleName("Honda");
 //
         user.getVehicles().add(vehicle);
         user.getVehicles().add(vehicle1);
-        vehicle.setUser(user);
-        vehicle1.setUser(user);
+
+        repository.save(user);
+
+//        Session session = factory.openSession();
+//        session.persist(user);
+//        session.save(vehicle);
+//        session.save(vehicle1);
 //        user.setVehicle(vehicle);
 //user.getListOfAddresses().add(address);
 //user.getListOfAddresses().add(address1);
-        repository.save(user);
-        vehicleRepository.save(vehicle);
-        vehicleRepository.save(vehicle1);
 
 
+//        repository.save(user);
+//        vehicleRepository.save(vehicle);
+//        vehicleRepository.save(vehicle1);
+
+//        vehicleRepository.deleteAll();
+//        repository.deleteAll();
 //        Session session = factory.openSession();
 //        session.save(user);
 //        session.save(vehicle);

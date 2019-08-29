@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import javax.management.ConstructorParameters;
 import javax.persistence.*;
 import java.beans.ConstructorProperties;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Data
 @NoArgsConstructor
@@ -16,7 +18,10 @@ public class Vehicle {
     private int vehicleId;
 
     private String vehicleName;
-
+//
     @ManyToOne
     private User user;
+
+//    @ManyToOne
+//    private User user;
 }

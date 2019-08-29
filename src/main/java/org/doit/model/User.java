@@ -38,11 +38,12 @@ public class User {
     private String password;
 
 
-
+//
+//    @OneToMany(cascade = CascadeType.ALL)                                           //This is linking of OneToMany relation
+//    @JoinTable(name = "VEHICLE_USER",
+//    joinColumns = @JoinColumn(name = "USER_ID"),
+//    inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "VEHICLE_USER",
-    joinColumns = @JoinColumn(name = "USER_ID"),
-    inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
     private Collection<Vehicle> vehicles = new ArrayList<>();
 //
 //    @OneToMany
