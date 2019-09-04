@@ -51,6 +51,7 @@ public class PersistenceConfig {
         sessionFactory.setPackagesToScan("org.doit.model");
         sessionFactory.setHibernateProperties(new Properties() {{
             put("hibernate.show_sql", true);
+            put("hibernate.hbm2ddl.auto","update");
         }});
         return sessionFactory;
     }
@@ -60,6 +61,7 @@ public class PersistenceConfig {
         HibernateJpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
         jpaVendorAdapter.setGenerateDdl(true);
         jpaVendorAdapter.setShowSql(true);
+
 
         LocalContainerEntityManagerFactoryBean entityManagerFactory =
                 new LocalContainerEntityManagerFactoryBean();

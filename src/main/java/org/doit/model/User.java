@@ -43,8 +43,8 @@ public class User {
 //    @JoinTable(name = "VEHICLE_USER",
 //    joinColumns = @JoinColumn(name = "USER_ID"),
 //    inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
-    @OneToMany(cascade = CascadeType.ALL)
-    private Collection<Vehicle> vehicles = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private Collection<Vehicle> vehicles = new ArrayList<>();
 //
 //    @OneToMany
 //    @JoinTable(
