@@ -1,15 +1,24 @@
 package org.doit.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
-/**
- * @author Aidar Shaifutdinov.
- */
+@Data
 @Entity
-@Table(name = "users")
+@NoArgsConstructor
+@Table(name = "USERS")
 public class User {
 
     @Id
@@ -28,46 +37,42 @@ public class User {
     @Size(min = 7, message = "Minimum 7 symbols")
     private String password;
 
-    public User() {
-    }
 
-    public String getName() {
-        return name;
-    }
+//
+//    @OneToMany(cascade = CascadeType.ALL)                                           //This is linking of OneToMany relation
+//    @JoinTable(name = "VEHICLE_USER",
+//    joinColumns = @JoinColumn(name = "USER_ID"),
+//    inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private Collection<Vehicle> vehicles = new ArrayList<>();
+//
+//    @OneToMany
+//    @JoinTable(
+//    joinColumns = {@JoinColumn(name="USERS_ID")},
+//    inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
 
-    public String getSurname() {
-        return surname;
-    }
+//    @JoinTable(name = "USER_VEHICLE",
+//            joinColumns = @JoinColumn(name = "USER_ID"),
+//            inverseJoinColumns = @JoinColumn(name = "VEHICLE_ID"))
+//    private Collection<Vehicle> vehicle = new ArrayList<Vehicle>();
+    //Embedding the class into entity table
+    //Collection Mapping and adding key, and fetching field
+    //Fetching - is proxy object, which allows us getting neither
+    // deleting file inf or if session is closed() to get the
+    // inf from close() session
+//    @Embedded
+//    private Address address;
+//
+//    @ElementCollection(fetch=FetchType.EAGER)
+//    @JoinTable(name = "User_Address",
+//    joinColumns = @JoinColumn(name = "USER_ID")
+//    )
+////    @GenericGenerator(name = "sequence",strategy = "sequence")
+//////    @GeneratedValue(ngenerator = "sequence-gen",strategy = GenerationType.SEQUENCE)
+////    @CollectionId(columns = {
+////            @Column(name = "ADDRESS_ID")
+////    }, generator = "sequence", type = @Type(type = "long"))
+//    private Collection<Address> listOfAddresses = new ArrayList<Address>();
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

@@ -1,5 +1,6 @@
 package org.doit.dao;
 
+import org.doit.model.Address;
 import org.doit.model.User;
 
 import java.util.List;

@@ -1,0 +1,4 @@
+org\doit\util\MainControllerTest.class
+org\doit\config\TestConfig.class
+org\doit\util\UserValidatorTest.class
+org\doit\util\RepoTest.class

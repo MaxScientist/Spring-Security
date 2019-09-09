@@ -1,6 +1,7 @@
 package org.doit.dao.impl;
 
 import org.doit.dao.UserDAO;
+import org.doit.model.Address;
 import org.doit.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -34,7 +35,12 @@ public class HibernateUserDAO implements UserDAO {
     }
 
     @Override
-    public void add(User user) {
+    public void add(User user)
+    {
+        //^
+        //|
+        //address
+//        user.setAddress(address);
         currentSession().save(user);
     }
 }
