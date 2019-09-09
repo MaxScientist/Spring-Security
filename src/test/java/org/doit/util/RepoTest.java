@@ -11,12 +11,16 @@ import org.doit.repository.VehicleRepository;
 import org.doit.service.UserService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.hibernate.Criteria
+import java.util.List;
+
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {
@@ -108,10 +112,15 @@ public class RepoTest {
 //        vehicleRepository.save(car);
         Session session = factory.openSession();
         session.beginTransaction();
-        User user= (User) session.get(User.class,4L);
-        user.setName("ShaimardanKozhakhmetov");
-        session.update(user);
+//        User user= (User) session.get(User.class,4L);
+//        user.setName("ShaimardanKozhakhmetov");
+//        session.update(user);
+        Query query = session.createQuery("from User");
+        List users = query.list();
+
         session.getTransaction().commit();
         session.close();
+
+//        System.out.println("The number of users is " + repository.findAll());
     }
 }
