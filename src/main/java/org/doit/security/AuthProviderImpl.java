@@ -1,5 +1,6 @@
 package org.doit.security;
 
+import org.doit.exceptions.OhOhHoldOnException;
 import org.doit.model.User;
 import org.doit.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,10 @@ public class AuthProviderImpl implements AuthenticationProvider {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+
         String email = authentication.getName();
         User user = userRepository.findByEmail(email);
         if (user == null) {
@@ -36,12 +39,17 @@ public class AuthProviderImpl implements AuthenticationProvider {
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new BadCredentialsException("Bad credentials");
         }
+        if(email == "2sd521@gmail.com"){
+                throw new OhOhHoldOnException("Haha Nice Try Body");
+        }
+
         List<GrantedAuthority> authorities = new ArrayList<>();
         return new UsernamePasswordAuthenticationToken(user, null, authorities);
     }
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return aClass.equals(UsernamePasswordAuthenticationToken.class);
+        return
+                aClass.equals(UsernamePasswordAuthenticationToken.class);
     }
 }
