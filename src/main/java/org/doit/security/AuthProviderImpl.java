@@ -11,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -39,7 +40,7 @@ public class AuthProviderImpl implements AuthenticationProvider {
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new BadCredentialsException("Bad credentials");
         }
-        if(email == "2sd521@gmail.com"){
+        if(email.equals("2sd5214@gmail.com")){
                 throw new OhOhHoldOnException("Haha Nice Try Body");
         }
 
