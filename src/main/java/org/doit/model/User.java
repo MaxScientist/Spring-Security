@@ -37,7 +37,9 @@ public class User {
     @Size(min = 7, message = "Minimum 7 symbols")
     private String password;
 
-
+    @ManyToOne
+    @JoinColumn(name="role_id")
+    private Role role;
 //
 //    @OneToMany(cascade = CascadeType.ALL)                                           //This is linking of OneToMany relation
 //    @JoinTable(name = "VEHICLE_USER",

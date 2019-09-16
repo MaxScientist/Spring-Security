@@ -110,17 +110,19 @@ public class RepoTest {
 //        vehicleRepository.save(vehicle);
 //        vehicleRepository.save(bike);
 //        vehicleRepository.save(car);
-        Session session = factory.openSession();
-        session.beginTransaction();
+//        Session session = factory.openSession();
+//        session.beginTransaction();
 //        User user= (User) session.get(User.class,4L);
 //        user.setName("ShaimardanKozhakhmetov");
 //        session.update(user);
-        Query query = session.createQuery("from User");
-        List users = query.list();
-
-        session.getTransaction().commit();
-        session.close();
+//        Query query = session.createQuery("from User");
+//        List users = query.list();
+//
+//        session.getTransaction().commit();
+//        session.close();
 
 //        System.out.println("The number of users is " + repository.findAll());
+        repository.deleteAll();
+
     }
 }

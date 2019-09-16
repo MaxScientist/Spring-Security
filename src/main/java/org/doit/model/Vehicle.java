@@ -8,12 +8,12 @@ import javax.persistence.*;
 import java.beans.ConstructorProperties;
 import java.util.ArrayList;
 import java.util.Collection;
-
-@Data
-@NoArgsConstructor
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)        //Earlier we used SINGLE_TABLE and PER_CLASS_TABLE options to
-                                                    //to Implement our inheritance
+//
+//@Data
+//@NoArgsConstructor
+//@Entity
+//@Inheritance(strategy = InheritanceType.JOINED)        //Earlier we used SINGLE_TABLE and PER_CLASS_TABLE options to
+//                                                    //to Implement our inheritance
 //@DiscriminatorColumn(
 //        name = "VEHICLE_TYPE",
 //        discriminatorType = DiscriminatorType.STRING

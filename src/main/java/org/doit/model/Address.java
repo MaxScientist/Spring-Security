@@ -6,10 +6,10 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;
-
-@Data
-@NoArgsConstructor
-@Embeddable
+//
+//@Data
+//@NoArgsConstructor
+//@Embeddable
 public class Address implements Serializable {
 
     private String street;
