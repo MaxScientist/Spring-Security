@@ -7,7 +7,6 @@ import org.doit.config.WebConfig;
 import org.doit.dao.impl.HibernateUserDAO;
 import org.doit.model.*;
 import org.doit.repository.UserRepository;
-import org.doit.repository.VehicleRepository;
 import org.doit.service.UserService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -33,8 +32,6 @@ public class RepoTest {
     @Autowired
     private UserRepository repository;
 
-    @Autowired
-    private VehicleRepository vehicleRepository;
 
 //
     @Autowired
