@@ -41,9 +41,6 @@ public class AuthProviderImpl implements AuthenticationProvider {
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new BadCredentialsException("Bad credentials");
         }
-        if(email.equals("2sd5214@gmail.com")){
-                throw new OhOhHoldOnException("Haha Nice Try Body");
-        }
         List<GrantedAuthority> authorities = new ArrayList<>();
         return new UsernamePasswordAuthenticationToken(user, null, authorities);
 
