@@ -16,7 +16,7 @@ public class MainController {
 
     @Autowired
     private UserService userService;
-
+//
     @GetMapping("/")
     public String home() {
         return "redirect:/users";
@@ -39,4 +39,5 @@ public class MainController {
         model.addAttribute("users", userService.getAll());
         return "/users";
     }
+
 }

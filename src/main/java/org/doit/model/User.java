@@ -2,11 +2,12 @@ package org.doit.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CollectionId;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -18,6 +19,7 @@ import java.util.Set;
 @Data
 @Entity
 @NoArgsConstructor
+@Access(AccessType.FIELD)
 @Table(name = "USERS")
 public class User {
 
@@ -37,6 +39,7 @@ public class User {
     @Size(min = 7, message = "Minimum 7 symbols")
     private String password;
 
+    private boolean enabled = true;
 //
 //    @OneToMany(cascade = CascadeType.ALL)                                           //This is linking of OneToMany relation
 //    @JoinTable(name = "VEHICLE_USER",
@@ -72,6 +75,18 @@ public class User {
 ////            @Column(name = "ADDRESS_ID")
 ////    }, generator = "sequence", type = @Type(type = "long"))
 //    private Collection<Address> listOfAddresses = new ArrayList<Address>();
+
+        @Enumerated(EnumType.STRING)
+        @CollectionTable(name = "user_roles", joinColumns=@JoinColumn
+                (name = "user_id"))
+        @Column(name = "role")
+        @ElementCollection(fetch = FetchType.EAGER)
+        @Fetch(FetchMode.SUBSELECT)
+        private Set<Role> roles;
+
+        public boolean isEnabled(){
+            return enabled;
+        }
 
 
 }
