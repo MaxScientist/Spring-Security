@@ -39,7 +39,11 @@ public class RepoTest {
 
     @Test
     public void testForRepo(){
-//
+        User user = repository.findByEmail("user@gmail.com");
+
+        for (Role role: user.getRoles()){
+            System.out.println(role.getAuthority());
+        }
 //
 //        User user = new User();
 //

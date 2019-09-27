@@ -24,7 +24,6 @@ public class AuthController {
     @GetMapping("/sign_up")
     public String getSignUp(Model model) {
         model.addAttribute("user", new User());
-//        model.addAttribute("address",new Address());
         return "/auth/sign_up";
     }
 
@@ -47,5 +46,12 @@ public class AuthController {
             model.addAttribute("error", true);
         }
         return "auth/sign_in";
+    }
+
+
+    @RequestMapping(value = "/admin/adminPage",method = RequestMethod.GET)
+    public String adminPage(Model model){
+        model.addAttribute("msg","Hello admin");
+        return "/admin/adminPage";
     }
 }
